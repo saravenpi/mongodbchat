@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mongo DB Chat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <script src="https://cdn.jsdelivr.net/npm/socket.io-client@2/dist/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="https://kit.fontawesome.com/9df66f7bcf.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+ 
+    <script src="/script.js"></script>
+   <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+             
+<div class="sidenav">
+   <div class="account" style="float: left;">
+   
+   
+   <span> <img class="img" src="<%= user.pp %>"  style="border-radius:50%; vertical-align: middle; display: inline;"></span>
+    <div style="vertical-align: middle; display: inline;" class="usernamebrd"><span style="vertical-align: middle; display: inline;"><%= user.username %></span></div>
+      
+<br>
+  </div>
+  
+  <% if(!user){ %>
+  <a href="/register">Register</a>
+  <a href="/login">Login</a>
+  <%  } else { %>
+  <a href="/"><i class="fab fa-angellist"></i> Chat</a>
+    <!-- faire que ça recharge pas tte la page, mais juste le .main -->
+  <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+  <% } %>
+</div>
+    <div class="main">
+      <h1>
+  Pannel de configuration:
+        <br>
+        <img src="<%= user.pp %>"  style="border-radius: 50%;object-fit: cover;width:100px; height:100px;">
+  
+ 
+      </h1>  
+  <form action="/config" method="POST">
+   
+    <div class="form-group">
+        <label for="InputPassword">Change your profile picture:</label>
+        <input type="text" class="form-control" name="user[pp]" id="InputPassword" value="<%= user.pp %>" required>
+      </div>
+    
+       <div class="form-group">
+        <label for="UsernameInput">Change your username :</label>
+        <input type="text" class="form-control" name="user[username]" id="UsernameInput" value="<%= user.username %>" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    
+    </form>
+  
+
+  </div>
+
+
+    </div>
+  </body>
+</html>
