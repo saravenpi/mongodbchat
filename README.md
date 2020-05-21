@@ -1,6 +1,6 @@
-## Mongo DB Chat 
+## Mongo DB Chat with Express.js
 
-### You just have to edit the process.env file with
+### You just have to edit a process.env file with
 ```
 MONGODB="yourmongodbconnectionurl"
 secretSession="somerandomstuff"
